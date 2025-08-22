@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'dragon';
+  src: url(../fonts/EG_Dragon_Caps.ttf);
+}
+
+:root {
+  --c: white; /*(text) color*/
+  --bc: black; /*background color*/
+  --ac: rgb(175, 141, 67); /*accent color*/
+}
+
+html * {
+  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+
+body {
+  background-color: var(--bc);
+  color: var(--c);
+  overflow-x: hidden;
+  font-family: '';
+}
+
+.main-container {
+  background-color: var(--bc);
+  color: var(--c);
+  position: absolute;
+  border: double 1vmax var(--ac);
+  padding: 1vmax 1vmax 2vmax 2vmax;
+  left: 50vw;
+  top: 0;
+  width: 90vw;
+  height: fit-content;
+  translate: -50% 1vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.light-dark-theme-btn {
+  position: absolute;
+  top: 2vmax;
+  right: 0;
+  z-index: 1;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.class-title-bar {
+  position: sticky;
+  top: -1vmax;
+  left: 0;
+  color: var(--ac);
+  width: 1fr;
+  max-width: 100%;
+  padding: 0 0.75em 0.5em;
+  font-size: 56px;
+  font-weight: normal;
+  background: linear-gradient(to bottom, var(--bc) 80%, transparent 100%);
+}
+.class-title-bar::after {
+  content: '';
+  position: absolute;
+  width: 15em;
+  max-width: 70vw;
+  height: 0.1em;
+  background: linear-gradient(0.25turn, transparent, var(--ac) 1em, transparent 10em);
+  top: 1.3em;
+  left: 0
+}
+
+.source-book {
+  padding-left: 1em;
+  font-size: 14px;
+}
+
+.class-feature-title {
+  font-size: 32px;
+}
+
+.class-feature-border {
+  border-top: solid 0.2vmax var(--ac);
+  border-bottom: solid 0.2vmax var(--ac);
+  border-radius: 2vmax;
+}
+
+.class-lore-class-core-traits-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.class-flavor-container {
+  max-width: 50vmax;
+  min-width: 50vmin;
+  height: fit-content;
+  padding: 1vmin;
+}
+.class-flavor-title {
+  text-align: center;
+  margin: 0;
+}
+.class-flavor {
+  font-size: 20px;
+  padding: 0 1em;
+}
+
+.core-class-traits-table-container {
+  max-width: 30vmax;
+  min-width: 30vmin;
+  height: fit-content;
+  padding: 1vmin;
+}
+.core-class-traits-table-title {
+  text-align: center;
+  margin: 0;
+}
+.core-class-traits-table {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  border-spacing: 0;
+}
+.core-class-traits-table td {
+  padding: 0.25vmin 1vmin; 
+}
+.core-class-traits-table td:nth-of-type(2n+1) {
+  width: fit-content;
+  border-radius: 1vmax 0 0 1vmax;  
+}
+.core-class-traits-table tr:nth-child(even) {
+  background: linear-gradient(140deg, var(--ac) -75%, transparent 80%);
+  
+}

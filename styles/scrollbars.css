@@ -1,0 +1,19 @@
+/* Scrollbar1: Martyr */
+.scrollbar1::-webkit-scrollbar {
+  transition: all 0.5s ease;
+  width: 1vmax;
+}
+.scrollbar1::-webkit-scrollbar-track {
+  background-color: rgba(222, 184, 135, 0.2);
+}
+.scrollbar1::-webkit-scrollbar-thumb {
+  background-color: rgba(222, 184, 135, 0.25);
+  border-radius: 20vw;
+}
+.scrollbar1::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(222, 184, 135, 0.5);
+}
+.scrollbar1::-webkit-scrollbar-thumb:active {
+  background-color: rgba(222, 184, 135, 0.75);
+}
+
