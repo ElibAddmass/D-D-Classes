@@ -73,7 +73,7 @@ body {
   font-size: 14px;
 }
 
-.class-feature-title {
+.class-feature-name {
   font-size: 32px;
 }
 
@@ -121,13 +121,25 @@ body {
   border-spacing: 0;
 }
 .core-class-traits-table td {
-  padding: 0.25vmin 1vmin; 
+  padding: 0.25vmin 1vmin;
 }
 .core-class-traits-table td:nth-of-type(2n+1) {
   width: fit-content;
-  border-radius: 1vmax 0 0 1vmax;  
+  border-radius: 1vmax 0 0 1vmax;
 }
 .core-class-traits-table tr:nth-child(even) {
   background: linear-gradient(140deg, var(--ac) -75%, transparent 80%);
-  
+}
+
+.class-features-title {
+  font-size: 50px;
+}
+
+.class-features-level-section {
+  font-size: 42px;
+}
+
+.class-feature {
+  padding: 2vmin 1em;
+  margin: 1vmin;
 }
