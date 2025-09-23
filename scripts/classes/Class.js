@@ -37,8 +37,21 @@ export default class Class {
       "75 GP"
     ]
   };
-
-  extraFeaturesTable = [ // These are extra columns that will be addded onto the default class feature table
+  defaultTableFeatures = [
+    {
+      name: 'Level',
+      values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    },
+    {
+      name: 'Proficiency Bonus',
+      values: [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5]
+    },
+    {
+      name: 'Class Features',
+      values: ['', '', '', 'Ability Score Improvement', '', '', '', 'Ability Score Improvement', '', '', '', 'Ability Score Improvement', '', '', '', 'Ability Score Improvement','', '', 'Epic Boon', '']
+    }
+  ]
+  classSpecificTableFeatures = [ // These are extra columns that will be addded onto the default class feature table
     {
       name: "Spell Level Casting Ability",
       values: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 9] // Length should be 20
@@ -78,32 +91,32 @@ export default class Class {
       ]
     },
     {
-      name: "Beholding",
-      lvl: 1,
+      name: "Harnessing",
+      lvl: 2,
       flavor: "Every Martyr level you gain a beholding choose between Body, Soul or Mind.",
       content: [
         {
           paragraphs: [
-            'You can behold one of the following vitalities of life of your choice'
+            'You can harness one of the following  of your choice'
           ]
         },
         {
-          name: 'Body (Recommended)',
+          name: 'Body',
           paragraphs: [
-            'You will learn to harness the true power of flesh and blood.',
-            'When you reach a '
+            'You will learn to harness the power of the flesh and blood.'
           ]
         },
         {
           name: 'Soul',
           paragraphs: [
-            'You will learn to harness the true power of spirit and soul.'
+            'You will learn to harness powers of the soul and spirit.'
           ]
         },
         {
           name: 'Mind',
           paragraphs: [
-            'You will learn to harness the true power of knowledge and mind.'
+            'You will learn to harness powers of the mind and intellect.',
+            'This '
           ]
         }
       ]
@@ -191,7 +204,19 @@ export default class Class {
   }
   getClassFeaturesHTML() {
     let html = '';
+    let featureLvls = [this.features[0].lvl];
+    for (let i = 0; i < this.features.length; i++) {
+      for (let j = 0; j < featureLvls.length; j++) {
+        if (featureLvls[j] != this.features[i].lvl) {
+          featureLvls.push(this.features[i].lvl);
+        }
+      }
+    }
     for (let lvl = 1; lvl <= 20; lvl++) {
+      if (!featureLvls.includes(lvl)) {
+        console.log('nope. not lvl: ' + lvl);
+        continue;
+      }
       html += `
         <div class="class-level-intro">
           <span class="class-features-level-section">Level ${lvl}</span>
@@ -220,5 +245,17 @@ export default class Class {
       }
     }
     return html;
+  }
+  getClassFeaturesTableHTML() {
+    let html = '<table>';
+    for (let i = 0; i < this.features.length; i++) {
+      `
+      <th>Level</th>
+      <tr>
+        <td>1</td>
+      </tr>
+      `
+    }
+    html += '</table>'
   }
 }

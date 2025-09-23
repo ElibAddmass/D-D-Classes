@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'dragon';
-  src: url(../fonts/EG_Dragon_Caps.ttf);
+  font-family: 'a';
+  src: url(../fonts/Cinzel-Regular.ttf);
 }
 
 :root {
@@ -12,6 +12,7 @@
 html * {
   transition: color 0.2s ease;
   transition: background-color 0.2s ease;
+  font-family: 'a';
 }
 
 body {
